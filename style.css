@@ -1,0 +1,134 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(9, 9, 121) 35%, rgba(0,212,255,1) 100%);
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: url('https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/tpr1q6erfkxhkskfbp9z.jpg'); /* Cambia esto a la URL de tu imagen */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; /* Ajusta la opacidad según sea necesario */
+  z-index: -1; /* Asegura que el contenido esté por encima de la imagen de fondo */
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 3% auto;
+  padding: 1%;
+}
+
+.container {
+  width: 40%; /* Ajusta el tamaño del contenedor de películas */
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0); /* Fondo semi-transparente */
+  border-radius: 2px;
+  padding: 20px;
+}
+
+.image-container {
+  width: 50%; /* Ajusta el tamaño del contenedor de imágenes */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 columnas */
+  grid-template-rows: repeat(3, auto); /* 2 filas */
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Añade un brillo alrededor del texto */
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.form-container input {
+  flex: 1 1 48%;
+  margin: 5px 0;
+  padding: 10px;
+  color: #f9f9f9;
+  background-color: #110f29ac;
+  border: 1px solid #2b2395e1;
+  border-radius: 3px;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #1201adb8;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  cursor: pointer;
+  flex: 1 1 100%;
+  margin: 5px 0;
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+}
+
+.movie-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #130a3fdf;
+  padding: 10px;
+  color: #ffffff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.movie-list li img {
+  max-width: 10%;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.movie-list li div {
+  flex: 1 1 auto;
+}
+
+.movie-list li button {
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.image-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  width: 92%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-item:hover img {
+  transform: scale(1.1);
+}
