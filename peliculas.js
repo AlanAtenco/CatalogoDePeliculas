@@ -37,8 +37,14 @@ class MovieCatalog {
     document.getElementById('director').value = movie.director;
     document.getElementById('year').value = movie.year;
 
-    document.getElementById('addMovieBtn').textContent = 'Guardar Cambios';
-    document.getElementById('addMovieBtn').onclick = () => this.saveChanges(index);
+    const addMovieBtn = document.getElementById('addMovieBtn');
+    addMovieBtn.textContent = 'Guardar Cambios';
+
+    // Eliminar el evento anterior para evitar múltiples enlaces
+    const newBtn = addMovieBtn.cloneNode(true);
+    addMovieBtn.parentNode.replaceChild(newBtn, addMovieBtn);
+    
+    newBtn.addEventListener('click', () => this.saveChanges(index));
   }
 
   saveChanges(index) {
@@ -55,14 +61,20 @@ class MovieCatalog {
     this.clearForm();
     this.renderMovies();
 
-    document.getElementById('addMovieBtn').textContent = 'Agregar Película';
-    document.getElementById('addMovieBtn').onclick = () => this.addMovie();
-  }
+    const addMovieBtn = document.getElementById('addMovieBtn');
+    addMovieBtn.textContent = 'Agregar Película';
+
+    // Eliminar el evento anterior para evitar múltiples enlaces
+    const newBtn = addMovieBtn.cloneNode(true);
+    addMovieBtn.parentNode.replaceChild(newBtn, addMovieBtn);
+    
+    newBtn.addEventListener('click', () => this.addMovie());
+}
 
   deleteMovie(index) {
     this.#movies.splice(index, 1);
     this.renderMovies();
-  }
+}
 
   renderMovies() {
     const movieList = document.getElementById('movieList');
@@ -81,7 +93,7 @@ class MovieCatalog {
       `;
       movieList.appendChild(li);
     });
-  }
+}
 
   clearForm() {
     document.getElementById('title').value = '';
@@ -89,5 +101,4 @@ class MovieCatalog {
     document.getElementById('year').value = '';
   }
 }
-
 const movieCatalog = new MovieCatalog();
